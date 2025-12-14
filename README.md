@@ -145,18 +145,16 @@ Four personalities are defined, each suited for different user needs:
 | `grounding_presence` | De-escalation and grounding | Very brief, present-focused, no analysis |
 | `practical_mentor` | Action-oriented support | Concise, offers one small concrete step |
 
-### Personality Parameters
+### Prompt Design
 
-Each personality is defined by structured parameters:
+Each personality is defined by a complete system prompt with specific guidelines:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `warmth` | 0.0–1.0 | Emotional warmth (clinical ↔ warm) |
-| `directness` | 0.0–1.0 | Communication style (gentle ↔ direct) |
-| `verbosity` | 0.0–1.0 | Response length (brief ↔ elaborate) |
-| `gives_advice` | bool | Whether to offer suggestions |
-| `asks_questions` | str | "none", "minimal", or "one_open" |
-| `focus` | str | "emotions", "thoughts", "present", or "action" |
+- **Role and purpose** — what the personality aims to achieve
+- **Communication style** — tone, length, approach
+- **Behavioral constraints** — what to do and what to avoid
+- **Example responses** — concrete illustrations of the expected style
+
+This approach was chosen over numeric parameters (warmth: 0.8, directness: 0.3) because direct prompt text is more expressive and easier to tune.
 
 ### Usage
 
