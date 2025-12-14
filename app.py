@@ -133,6 +133,22 @@ st.divider()
 st.header("Before/After Comparison")
 st.markdown("*See how the personality transforms the response*")
 
+# Personality selector
+personality_options = list(PERSONALITIES.keys())
+personality_labels = [f"{PERSONALITIES[p]['name']} {'(auto-selected)' if p == selected_name else ''}" for p in personality_options]
+
+selected_personality = st.selectbox(
+    "Select Personality to Test:",
+    options=personality_options,
+    format_func=lambda x: f"{PERSONALITIES[x]['name']} {'(auto-selected from memory)' if x == selected_name else ''}",
+    index=personality_options.index(selected_name)
+)
+
+demo_config = engine.get_personality(selected_personality)
+st.caption(f"*{demo_config['description']}*")
+
+st.markdown("---")
+
 # Example messages
 example_messages = [
     "I've been working past midnight again and the anxiety is building up.",
@@ -159,8 +175,8 @@ if st.button("Generate Responses", type="primary"):
     if not user_message.strip():
         st.warning("Please enter a message.")
     else:
-        # Build prompt
-        prompt = engine.build_prompt(personality=selected_name, memory=memory)
+        # Build prompt with selected personality
+        prompt = engine.build_prompt(personality=selected_personality)
         
         # Generate responses
         with st.spinner("Generating responses..."):
@@ -179,8 +195,8 @@ if st.button("Generate Responses", type="primary"):
             st.markdown("")
             
             # AFTER
-            st.subheader(f"AFTER ({selected_config['name']})")
-            st.caption(selected_config['description'])
+            st.subheader(f"AFTER ({demo_config['name']})")
+            st.caption(demo_config['description'])
             try:
                 styled_response = agent.respond(user_message, system_prompt=prompt)
                 st.success(styled_response)
