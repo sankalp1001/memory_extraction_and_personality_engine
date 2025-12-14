@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": "user_supportive_listener",
+      "expected_personality": "supportive_listener",
+      "description": "User who wants to be heard and understood, values emotional connection",
+      "conversation": [
+        {"turn": 1, "role": "user", "content": "I've been feeling really down lately and I don't know why."},
+        {"turn": 2, "role": "assistant", "content": "I'm sorry to hear that. Would you like to talk about it?"},
+        {"turn": 3, "role": "user", "content": "I guess... I just feel like no one really listens to me. Everyone always wants to fix things."},
+        {"turn": 4, "role": "assistant", "content": "That sounds frustrating. It's important to feel heard."},
+        {"turn": 5, "role": "user", "content": "Yeah, exactly. I don't need solutions, I just need someone to understand what I'm going through."},
+        {"turn": 6, "role": "assistant", "content": "I hear you. Sometimes we just need space to express ourselves."},
+        {"turn": 7, "role": "user", "content": "My family doesn't get it. They always say 'just be positive' or 'think about the good things.'"},
+        {"turn": 8, "role": "assistant", "content": "That kind of response can feel dismissive when you're struggling."},
+        {"turn": 9, "role": "user", "content": "It really does. I appreciate when someone just sits with me and lets me feel what I feel."},
+        {"turn": 10, "role": "assistant", "content": "That's a valid need. Being present with someone is powerful."},
+        {"turn": 11, "role": "user", "content": "I'm a teacher, so I spend all day giving to others. When I come home, I'm emotionally drained."},
+        {"turn": 12, "role": "assistant", "content": "Teaching can be incredibly draining emotionally."},
+        {"turn": 13, "role": "user", "content": "I just want this to be a safe space where I can share without judgment."},
+        {"turn": 14, "role": "assistant", "content": "Absolutely. This is your space to be yourself."}
+      ],
+      "test_message": "I had a really hard day with my students and I'm feeling emotionally exhausted."
+    },
+    {
+      "id": "user_cbt_reflective",
+      "expected_personality": "cbt_reflective_guide",
+      "description": "User who is introspective, notices their thought patterns, wants to understand themselves",
+      "conversation": [
+        {"turn": 1, "role": "user", "content": "I've been noticing that I always assume the worst about situations."},
+        {"turn": 2, "role": "assistant", "content": "That's an interesting observation. Can you give me an example?"},
+        {"turn": 3, "role": "user", "content": "Like if my boss doesn't reply to an email, I immediately think I did something wrong."},
+        {"turn": 4, "role": "assistant", "content": "That sounds like you're jumping to conclusions. What evidence do you have for that thought?"},
+        {"turn": 5, "role": "user", "content": "I mean, none really. My boss is just busy. But my brain goes there anyway."},
+        {"turn": 6, "role": "assistant", "content": "It's interesting that you recognize the pattern."},
+        {"turn": 7, "role": "user", "content": "I want to understand why I think this way. I'm curious about my own patterns."},
+        {"turn": 8, "role": "assistant", "content": "Self-awareness is a great first step."},
+        {"turn": 9, "role": "user", "content": "I think it comes from childhood—always trying to read my parents' moods."},
+        {"turn": 10, "role": "assistant", "content": "That makes sense. Early experiences can shape our automatic thoughts."},
+        {"turn": 11, "role": "user", "content": "I'd like to explore these patterns more. Maybe understand the stories I tell myself."},
+        {"turn": 12, "role": "assistant", "content": "That's a thoughtful approach."},
+        {"turn": 13, "role": "user", "content": "I'm an analyst by profession, so I like to understand the data—even when it's about myself."},
+        {"turn": 14, "role": "assistant", "content": "Applying that analytical lens to yourself can be powerful."}
+      ],
+      "test_message": "My manager gave me feedback today and I immediately thought I'm terrible at my job."
+    },
+    {
+      "id": "user_grounding_presence",
+      "expected_personality": "grounding_presence",
+      "description": "User with high anxiety who dislikes cheerful advice, needs calming presence",
+      "conversation": [
+        {"turn": 1, "role": "user", "content": "Ugh, I've been feeling pretty overwhelmed with work lately."},
+        {"turn": 2, "role": "assistant", "content": "That sounds tough. What's been going on?"},
+        {"turn": 3, "role": "user", "content": "I'm a software engineer and the deadlines just keep stacking up."},
+        {"turn": 4, "role": "assistant", "content": "That kind of pressure can build really quickly."},
+        {"turn": 5, "role": "user", "content": "I usually work late into the night. I'm most productive after midnight."},
+        {"turn": 6, "role": "assistant", "content": "Late-night focus works well for some people."},
+        {"turn": 7, "role": "user", "content": "But then my sleep gets messed up and I feel anxious the next day. It's a cycle."},
+        {"turn": 8, "role": "assistant", "content": "That sounds frustrating—being productive but dealing with the fallout."},
+        {"turn": 9, "role": "user", "content": "You know what? I really don't like overly cheerful advice when I'm stressed. It feels fake."},
+        {"turn": 10, "role": "assistant", "content": "I hear you. Forced positivity can feel dismissive."},
+        {"turn": 11, "role": "user", "content": "Sometimes I just want someone to listen instead of fixing things."},
+        {"turn": 12, "role": "assistant", "content": "Being heard without pressure to solve everything can be important."},
+        {"turn": 13, "role": "user", "content": "I want this to feel like a steady presence, not a life coach trying to optimize me."},
+        {"turn": 14, "role": "assistant", "content": "That makes sense. I'm here to support, not to push."}
+      ],
+      "test_message": "I've been working past midnight again and the anxiety is building up."
+    },
+    {
+      "id": "user_practical_mentor",
+      "expected_personality": "practical_mentor",
+      "description": "User who is action-oriented, wants concrete steps, prefers practical solutions",
+      "conversation": [
+        {"turn": 1, "role": "user", "content": "I need to get better at managing my time. I'm always behind."},
+        {"turn": 2, "role": "assistant", "content": "Time management can be tricky. What's been the main challenge?"},
+        {"turn": 3, "role": "user", "content": "I take on too much and then I can't deliver. I need a system."},
+        {"turn": 4, "role": "assistant", "content": "Having a system can definitely help."},
+        {"turn": 5, "role": "user", "content": "I'm not looking for emotional support here—I just want practical solutions."},
+        {"turn": 6, "role": "assistant", "content": "Got it. Let's focus on actionable steps."},
+        {"turn": 7, "role": "user", "content": "Exactly. Give me something I can do today, not next month."},
+        {"turn": 8, "role": "assistant", "content": "Small, immediate actions can build momentum."},
+        {"turn": 9, "role": "user", "content": "I'm a project manager, so I'm used to plans and deadlines. I work well with structure."},
+        {"turn": 10, "role": "assistant", "content": "Structure sounds like it aligns with how you operate."},
+        {"turn": 11, "role": "user", "content": "I prefer direct communication. Don't sugarcoat things for me."},
+        {"turn": 12, "role": "assistant", "content": "I appreciate that directness. I'll keep it straightforward."},
+        {"turn": 13, "role": "user", "content": "If something isn't working, I'd rather know so I can fix it."},
+        {"turn": 14, "role": "assistant", "content": "That problem-solving mindset is valuable."}
+      ],
+      "test_message": "I have three deadlines this week and I don't know where to start."
+    }
+  ]
+}
+

@@ -1,0 +1,234 @@
+{
+  "preferences": [
+    {
+      "id": "mem_2",
+      "type": "preference",
+      "key": "late_night_productivity_preference",
+      "value": "prefers working late into the night and is most productive after midnight",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "Not really. And honestly, I usually work late into the night anyway. I'm most productive after midnight - always have been.",
+        "turns": [
+          5
+        ]
+      },
+      "source_chunks": [
+        1
+      ]
+    },
+    {
+      "id": "mem_4",
+      "type": "preference",
+      "key": "exercise_preference",
+      "value": "prefers running; mood drops when skipping running",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "Exercise, definitely. Like, I've noticed my mood just drops when I skip running for a few days. It's pretty obvious.",
+        "turns": [
+          9,
+          11
+        ]
+      },
+      "source_chunks": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "mem_6",
+      "type": "preference",
+      "key": "music_preference",
+      "value": "prefers lo\u2011fi or instrumental tracks while working and dislikes lyrics during coding",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "Music helps too. I mostly listen to lo\u2011fi or instrumental tracks while working. Can't deal with lyrics when I'm coding.",
+        "turns": [
+          13
+        ]
+      },
+      "source_chunks": [
+        2
+      ]
+    },
+    {
+      "id": "mem_7",
+      "type": "preference",
+      "key": "dislike_toxic_positivity",
+      "value": "doesn't like overly cheerful advice when stressed",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "I really don't like overly cheerful advice when I'm stressed. It just feels... fake? Like toxic positivity.",
+        "turns": [
+          15
+        ]
+      },
+      "source_chunks": [
+        2
+      ]
+    },
+    {
+      "id": "mem_8",
+      "type": "preference",
+      "key": "listening_preference",
+      "value": "wants someone to listen instead of immediately trying to fix things",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "Sometimes I just want someone to listen instead of immediately trying to fix things.",
+        "turns": [
+          17
+        ]
+      },
+      "source_chunks": [
+        2
+      ]
+    },
+    {
+      "id": "mem_10",
+      "type": "preference",
+      "key": "conversation_style_preference",
+      "value": "prefers calm conversations with few questions at once",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "I prefer conversations like this. Calm, not too many questions at once.",
+        "turns": [
+          23
+        ]
+      },
+      "source_chunks": [
+        3
+      ]
+    },
+    {
+      "id": "mem_11",
+      "type": "preference",
+      "key": "support_style_preference",
+      "value": "wants steady presence, not life coach or therapist trying to optimize",
+      "confidence": 0.9,
+      "evidence": {
+        "quote": "I think I want this to feel like a steady presence, not like... a life coach or therapist trying to optimize me",
+        "turns": [
+          29
+        ]
+      },
+      "source_chunks": [
+        3
+      ]
+    },
+    {
+      "id": "mem_12",
+      "type": "preference",
+      "key": "disclosure_tendency",
+      "value": "prefers to open up slowly rather than dumping everything at once",
+      "confidence": 0.9,
+      "evidence": {
+        "quote": "I also usually open up slowly rather than dumping everything all at once. It's just how I am.",
+        "turns": [
+          27
+        ]
+      },
+      "source_chunks": [
+        3
+      ]
+    },
+    {
+      "id": "mem_14",
+      "type": "preference",
+      "key": "team_intensity_preference",
+      "value": "considering switching to a less intense team in a few months",
+      "confidence": 0.8,
+      "evidence": {
+        "quote": "I'm actually considering switching to a less intense team in a few months.",
+        "turns": [
+          21
+        ]
+      },
+      "source_chunks": [
+        3
+      ]
+    }
+  ],
+  "emotional_patterns": [
+    {
+      "id": "mem_3",
+      "type": "emotional_pattern",
+      "key": "sleep_anxiety_pattern",
+      "value": "sleep disruption leads to next-day anxiety",
+      "confidence": 0.9,
+      "evidence": {
+        "quote": "I get a lot done, but then my sleep gets totally messed up and I feel anxious the next day. It's like a cycle.",
+        "turns": [
+          7
+        ]
+      },
+      "source_chunks": [
+        1
+      ]
+    },
+    {
+      "id": "mem_5",
+      "type": "emotional_pattern",
+      "key": "running_mood_pattern",
+      "value": "skipping running leads to a drop in mood",
+      "confidence": 0.9,
+      "evidence": {
+        "quote": "Exercise, definitely. Like, I've noticed my mood just drops when I skip running for a few days. It's pretty obvious.",
+        "turns": [
+          9
+        ]
+      },
+      "source_chunks": [
+        1
+      ]
+    },
+    {
+      "id": "mem_9",
+      "type": "emotional_pattern",
+      "key": "weekend_mood_pattern",
+      "value": "feels better on weekends, especially Sunday mornings",
+      "confidence": 0.95,
+      "evidence": {
+        "quote": "On weekends I usually feel better though, especially Sunday mornings. It's weird but consistent.",
+        "turns": [
+          19
+        ]
+      },
+      "source_chunks": [
+        2
+      ]
+    }
+  ],
+  "long_term_facts": [
+    {
+      "id": "mem_1",
+      "type": "long_term_fact",
+      "key": "occupation",
+      "value": "software engineer",
+      "confidence": 1.0,
+      "evidence": {
+        "quote": "I'm a software engineer and the deadlines just keep stacking up.",
+        "turns": [
+          3
+        ]
+      },
+      "source_chunks": [
+        1
+      ]
+    },
+    {
+      "id": "mem_13",
+      "type": "long_term_fact",
+      "key": "living_situation",
+      "value": "lives alone",
+      "confidence": 1.0,
+      "evidence": {
+        "quote": "I live alone, so I think work stress tends to echo more",
+        "turns": [
+          25
+        ]
+      },
+      "source_chunks": [
+        3
+      ]
+    }
+  ]
+}
