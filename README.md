@@ -226,6 +226,16 @@ memory_extraction_and_persona_build/
 
 ---
 
+## Technical Stack
+
+| Component | Technology |
+|-----------|------------|
+| **LLM** | `openai/gpt-oss-20b` via Groq API |
+| **Framework** | Python with Streamlit for UI |
+| **Inference** | Groq (fast inference) |
+
+---
+
 ## Running the System
 
 ```bash
@@ -234,6 +244,9 @@ python memory_extractor.py
 
 # Step 2: Run personality demo (before/after comparison)
 python personality_engine.py
+
+# Step 3: Run Streamlit app
+streamlit run app.py
 ```
 
 ---
