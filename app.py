@@ -133,14 +133,20 @@ st.divider()
 st.header("Before/After Comparison")
 st.markdown("*See how the personality transforms the response*")
 
+# Explain the classification
+st.info(f"""
+**Classification Result:** Based on the extracted user memory above, the system classified the personality as **{selected_config['name']}**.
+
+The dropdown below defaults to this classified personality. You can override it to test other personalities.
+""")
+
 # Personality selector
 personality_options = list(PERSONALITIES.keys())
-personality_labels = [f"{PERSONALITIES[p]['name']} {'(auto-selected)' if p == selected_name else ''}" for p in personality_options]
 
 selected_personality = st.selectbox(
-    "Select Personality to Test:",
+    "Personality:",
     options=personality_options,
-    format_func=lambda x: f"{PERSONALITIES[x]['name']} {'(auto-selected from memory)' if x == selected_name else ''}",
+    format_func=lambda x: f"{PERSONALITIES[x]['name']} {'← classified from memory' if x == selected_name else ''}",
     index=personality_options.index(selected_name)
 )
 
