@@ -317,6 +317,31 @@ class PersonalityEngine:
         
         return "\n".join(context_parts)
     
+    def build_baseline_prompt(self, memory: Optional[Dict[str, Any]] = None, memory_path: Optional[str] = None) -> str:
+        """
+        Build a baseline (neutral) prompt with memory context.
+        
+        This is used for "BEFORE" comparisons - it has memory context but no
+        personality-specific instructions. Only neutral prompt + memory.
+        
+        Args:
+            memory: Pre-loaded memory dict
+            memory_path: Path to user_memory.json (alternative to memory)
+        
+        Returns:
+            Baseline system prompt with memory context (if provided)
+        """
+        prompt = NEUTRAL_PROMPT
+        
+        # Add memory context if available
+        if memory_path:
+            memory = self.load_memory(memory_path)
+        
+        if memory:
+            prompt += self._add_memory_context(memory)
+        
+        return prompt
+    
     def get_personality(self, name: str) -> Dict[str, str]:
         """Get a personality configuration by name."""
         if name not in self.personalities:

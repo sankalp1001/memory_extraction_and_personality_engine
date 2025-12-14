@@ -172,16 +172,43 @@ response = agent.respond(user_message, system_prompt=prompt)
 
 ### Before/After Demonstration
 
-The demo shows how the same user message receives different responses:
+The Streamlit demo (`app.py`) demonstrates how personality instructions transform responses when combined with user memory.
 
-**User:** "I had a really stressful day today."
+#### Demo Process
 
-| Personality | Response Style |
-|-------------|----------------|
-| **Neutral (before)** | Generic, may offer unsolicited advice |
-| **Supportive Listener** | Validates feelings, invites sharing |
-| **Grounding Presence** | Very brief, present-focused, calming |
-| **Practical Mentor** | One concrete action step |
+1. **Select a Test User** - Choose from 4 test users, each representing a different personality type:
+   - Supportive Listener - Wants to be heard, values emotional connection
+   - CBT-Reflective Guide - Introspective, notices thought patterns
+   - Grounding Presence - High anxiety, dislikes cheerful advice, needs calming presence
+   - Practical Mentor - Action-oriented, wants concrete steps
+
+2. **Memory Extraction** - The system extracts structured memory from the user's conversation:
+   - **Preferences**: Communication style, likes/dislikes
+   - **Emotional Patterns**: Recurring emotional responses
+   - **Facts**: Biographical/contextual information
+
+3. **Generate Two Responses** to the same test message:
+   
+   **BEFORE (Baseline)**: 
+   - System Prompt: `"You are a helpful assistant."` + user memory context
+   - The LLM has access to user memory but no special communication instructions
+   - Response style: Generic, helpful, may give advice
+   
+   **AFTER (Personality-Adjusted)**: 
+   - System Prompt: Personality-specific instructions + user memory context
+   - The LLM follows detailed personality guidelines while respecting user memory
+   - Response style: Tailored to personality (e.g., no advice, brief, specific tone)
+
+#### Example Comparison
+
+**User:** "I've been working past midnight again and the anxiety is building up."
+
+| Response Type | Example Style |
+|---------------|---------------|
+| **BEFORE (Baseline + Memory)** | "It sounds like you're dealing with a lot. Working late can definitely contribute to anxiety. Have you considered setting a stricter bedtime routine? Creating boundaries around work hours might help..." |
+| **AFTER (Grounding Presence + Memory)** | "That cycle of late nights and anxiety sounds really draining—it makes sense that it's catching up with you. Sometimes when things pile up like that, it helps just to pause for a second. How are you feeling right now, in this moment?" |
+
+**Key Insight**: Both responses use the same user memory (e.g., "sleep disruption leads to anxiety", "prefers calm presence over advice"), but the personality instructions dramatically change how the AI responds to that information.
 
 ---
 
@@ -194,18 +221,34 @@ The demo shows how the same user message receives different responses:
 5. **LLM returns valid JSON** — error handling for malformed responses is included
 6. **Single user per conversation** — no multi-user scenarios
 
-### Extension: Memory-Based Personality Selection
+### Memory + Personality Integration
 
-**Note:** The assignment requires a memory extraction module and a separate personality engine. The connection between them (automatically selecting personality based on extracted memory) is implemented as an **optional extension** to demonstrate how user memory can inform agent behavior. This is not explicitly required by the assignment but showcases "working with user memory" in a practical way.
+The personality engine integrates with extracted memory in two ways:
 
-The `select_personality(memory)` method and memory context injection can be used when tighter integration is desired:
+1. **Memory Context Injection**: User memory is automatically appended to any system prompt when memory is provided:
+   ```python
+   # Build prompt with personality + memory
+   prompt = engine.build_prompt(
+       personality="supportive_listener",
+       memory=user_memory  # Memory context automatically added
+   )
+   ```
 
-```python
-# Optional: Auto-select personality based on memory
-memory = engine.load_memory("user_memory.json")
-selected = engine.select_personality(memory)
-prompt = engine.build_prompt(memory=memory)
-```
+2. **Baseline Prompt with Memory**: For comparison purposes, a baseline prompt includes memory but no personality instructions:
+   ```python
+   # Baseline prompt: neutral + memory (no personality)
+   baseline = engine.build_baseline_prompt(memory=user_memory)
+   ```
+
+3. **Automatic Personality Selection** (Optional): The engine can automatically select a personality based on extracted memory:
+   ```python
+   # Auto-select personality from memory
+   memory = engine.load_memory("user_memory.json")
+   selected = engine.select_personality(memory)
+   prompt = engine.build_prompt(memory=memory)  # Uses selected personality
+   ```
+
+This demonstrates how user memory and personality instructions work together to create personalized responses.
 
 ---
 
@@ -214,11 +257,13 @@ prompt = engine.build_prompt(memory=memory)
 ```
 memory_extraction_and_persona_build/
 ├── memory_extractor.py     # Memory extraction with aggregation
-├── personality_engine.py   # Personality prompt design + demo
-├── base_agent.py           # Base LLM agent
+├── personality_engine.py   # Personality prompt design + baseline prompt builder
+├── base_agent.py           # Base LLM agent (Groq API wrapper)
+├── app.py                  # Streamlit demo app
 ├── data/
-│   └── sample_conversation.json
-    ├── user_memory.json (output)  # Extracted memories
+│   ├── sample_conversation.json  # Sample conversation for extraction
+│   ├── test_users.json           # Test users for demo (4 personalities)
+│   └── user_memory.json (output) # Extracted memories
 └── README.md
 ```
 
@@ -236,14 +281,33 @@ memory_extraction_and_persona_build/
 
 ## Running the System
 
+### Option 1: Streamlit Demo (Recommended)
+
+The interactive Streamlit app demonstrates the full system with test users:
+
+```bash
+# Run the interactive demo
+streamlit run app.py
+```
+
+**What the demo shows:**
+1. Test users with different personality types
+2. Memory extraction from conversations
+3. Before/After comparison showing how personality instructions transform responses
+4. Both responses use the same memory, but different communication instructions
+
+### Option 2: Command Line Scripts
+
 ```bash
 # Step 1: Extract memories from sample conversation
 python memory_extractor.py
+# Output: data/user_memory.json
 
 # Step 2: Run personality demo (before/after comparison)
 python personality_engine.py
+# Shows a single example with the extracted memory
 
-# Step 3: Run Streamlit app
+# Step 3: Run Streamlit app (interactive demo)
 streamlit run app.py
 ```
 
