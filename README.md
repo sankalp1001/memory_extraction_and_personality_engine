@@ -230,7 +230,7 @@ memory_extraction_and_persona_build/
 |-----------|------------|
 | **LLM** | `openai/gpt-oss-20b` via Groq API |
 | **Framework** | Python with Streamlit for UI |
-| **Inference** | Groq (fast inference) |
+
 
 ---
 
