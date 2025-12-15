@@ -1,3 +1,7 @@
+**Live Demo:** [View the deployed Streamlit app](https://memoryextractionandpersonalityengine-7qz8pzc364sjsw3tzypl5y.streamlit.app/)
+
+---
+
 ## Module 1: Memory Extractor (`memory_extractor.py`)
 
 ### Design Choices
@@ -286,7 +290,7 @@ memory_extraction_and_persona_build/
 The interactive Streamlit app demonstrates the full system with test users:
 
 ```bash
-# Run the interactive demo
+# Run the interactive demo locally
 streamlit run app.py
 ```
 
